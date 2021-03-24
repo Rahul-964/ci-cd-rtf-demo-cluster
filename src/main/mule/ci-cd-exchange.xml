@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="a056093f-d5cd-4700-bd59-931110669982" >
+		<http:listener-connection host="0.0.0.0" port="${http.port}" />
+	</http:listener-config>
+	<configuration-properties doc:name="Configuration properties" doc:id="8458ebdd-e7f3-4bab-954f-808e6a5bf2a3" file="dev.yaml" />
+	<flow name="ci-cd-exchangeFlow" doc:id="c15c9bad-d6c9-45f1-b1a2-28c6931d26b8" >
+		<http:listener doc:name="Listener" doc:id="039396e7-f76e-447e-94ac-b7020ad09592" config-ref="HTTP_Listener_config" path="/test-rtf"/>
+		<logger level="INFO" doc:name="Logger" doc:id="7b3d16d3-82dc-462e-aecd-b772c414a181" message="Exchange flow started"/>
+		<ee:transform doc:name="Transform Message" doc:id="946293fc-a418-4c0d-9f13-87ade4d4ec92" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	"message" : "RTF Deployment Flow is Successful"
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="41c4e4dd-cd7b-4a5f-a368-e10d6008b8df" message="Exchange flow completed"/>
+	</flow>
+</mule>

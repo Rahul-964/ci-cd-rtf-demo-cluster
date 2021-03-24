@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="ci-cd-exchange-test-suite.xml" />
+	<munit:test name="ci-cd-exchange-test-suite-ci-cd-exchangeFlowTest" doc:id="b3c56cf3-156c-4b0c-9c0a-1fa893c4ee7f" description="Test">
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to ci-cd-exchangeFlow" doc:id="b8cf6659-c900-4241-b0d4-d890da5d40ea" name="ci-cd-exchangeFlow"/>
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-that doc:name="Assert that" doc:id="a9052442-5c56-454c-9e47-bc4533cee9fc" expression="#[payload]" is="#[MunitTools::notNullValue()]"/>
+		</munit:validation>
+	</munit:test>
+
+
+</mule>
