@@ -5,11 +5,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>4c2825dd-e397-4b98-8eb5-fdf4c967c16e</groupId>
-	<artifactId>ci-cd-rtf-demo-rahul232356</artifactId>
+	<artifactId>ci-cd-rtf-demo-rahul38456</artifactId>
 	<version>1.0.0</version>
 	<packaging>mule-application</packaging>
 
-	<name>ci-cd-rtf-demo-rahul232356</name>
+	<name>ci-cd-rtf-demo-rahul38456</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -36,14 +36,14 @@
 					<runtimeFabricDeployment>
 						<uri>https://anypoint.mulesoft.com</uri>
 						<muleVersion>4.3.0</muleVersion>
-						<target>apisero-topgolf-rtf-007</target>
+						<target>apisero-topgolf-rtf007</target>
 						<environment>Sandbox</environment>
 						<businessGroup>Apisero\Apisero Sandbox</businessGroup>
 						<connectedAppClientId>28a4c50b67e946838a2093910d13559d</connectedAppClientId>
 						<connectedAppClientSecret>16D48E2b2B104275bE800Ac7C114fB9F</connectedAppClientSecret>
 						<connectedAppGrantType>client_credentials</connectedAppGrantType>
 						<provider>MC</provider>
-						<applicationName>ci-cd-rtf-demo-rahul232356</applicationName>
+						<applicationName>ci-cd-rtf-demo-rahul38456</applicationName>
 						<replicas>2</replicas>
 						<deploymentSettings>
 							<enforceDeployingReplicasAcrossNodes>true</enforceDeployingReplicasAcrossNodes>
@@ -51,7 +51,7 @@
 							<clustered>true</clustered>
 							<http>
 								<inbound>
-									<publicUrl>https://ec2-3-142-241-5.us-east-2.compute.amazonaws.com/ci-cd-rtf-demo-rahul232356</publicUrl>
+									<publicUrl>https://ec2-18-221-133-147.us-east-2.compute.amazonaws.com/ci-cd-rtf-demo-rahul38456</publicUrl>
 								</inbound>
 							</http>
 						</deploymentSettings>
